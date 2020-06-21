@@ -1,0 +1,59 @@
+import React from 'react';
+import logo from './logo.svg';
+import './App.css';
+import axios from 'axios'
+import Cards from './Card.js'
+class App extends React.Component{
+
+
+  state={
+
+    Countries:[],
+    global:[],
+    CurrentDate:[],
+    Loading:true
+  }
+//asyn for synchronous 
+ async  componentDidMount()
+{
+//await use for wait until we get request from api
+ const res= await axios.get('https://api.covid19api.com/summary')
+ console.log(res.data) 
+ this.setState(
+    {
+      Countries:res.data.Countries,
+      global:res.data.Global,
+      CurrentDate:res.data.Date,
+      Loading:false
+    }
+  )}
+change = (value) =>
+{
+  return(
+  <>
+  <Cards   
+   Country={value.Country}
+   CountryCode={value.CountryCode}
+   NewConfirmed={value.NewConfirmed}
+   NewDeaths={value.NewDeaths}
+   NewRecovered={value.NewRecovered}
+  
+  ></Cards>
+    </>
+  )
+}
+render(){
+
+if(this.state.Loading==true)
+{
+  return( <h1
+  style={{textAlign:"center"}}
+  >Loading... DATA</h1>)
+}
+return (
+
+  <>
+    {this.state.Countries.map(this.change)}
+  </>
+)}}
+export default App;

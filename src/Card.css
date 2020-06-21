@@ -1,0 +1,46 @@
+.Card{
+width: 230px;
+height: 250px;
+margin-left: 70px;
+margin-top: 40px;
+padding: 10px;
+padding-top: 24px;
+background: linear-gradient(to right, #243B55, #141E30);
+border-radius: 10px;
+transition: all 1s ease-in-out;
+
+}
+img{
+    position: relative;
+    top:-20px;
+    height: 70x;
+    left:70px;
+
+}
+.Card:hover{
+    transform: scale(1.1);
+}
+ul li{
+    position: relative;
+    top:-80px;
+    list-style-type: none;
+    font-size: 15px;
+    color:white;
+    margin-left: -40px;
+}
+
+@media only screen and (max-width: 700px) {
+    .Card{
+        width: 230px;
+        height: 250px;
+        margin-left: 20px;
+        margin-top: 40px;
+        padding: 10px;
+        padding-top: 24px;
+        background: linear-gradient(to right, #243B55, #141E30);
+        border-radius: 10px;
+        transition: all 1s ease-in-out;
+        
+        }
+        
+}
